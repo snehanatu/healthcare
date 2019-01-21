@@ -1,0 +1,61 @@
+<!DOCTYPE>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>HealthCare Plus</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<!-- Latest compiled and minified CSS -->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">HC+</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/contact">Contact</a></li>
+				<li><a href="/aboutUs">About Us</a></li>
+				<li><a href="/info">Information</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h1>Welcome</h1>
+			<h3>Thank You for Signing up!Here is the information I know
+				about you:</h3>
+
+			<p>First Name: <span th:text="${firstName}"></span></p>
+			<p>Last Name: <span th:text="${lastName}"></span></p>
+			<p>Phone Number: <span th:text="${phoneNo}"></span></p>
+			<p>Birthday: <span th:text="${dateOfBirth}"></span></p>
+			<p>Insurance Name: <span th:text="${insuranceName}"></span></p>
+			<p>Email: <span th:text="${email}"></span></p>
+			<p>Address: <span th:text="${address}"></span></p>
+			
+			<table>
+				<tr th:each="patient: ${patients}">
+                		<td th:text="${patient.firstName}" />
+               			<td th:text="${patient.lastName}"/>
+               			<td th:text="${patient.phoneNo}"/>
+               			<td th:text="${patient.email}"/>
+               			<td th:text="${patient.address}"/> 
+               			<td th:text="${patient.insuranceName}"/> 
+               			<td th:text="${patient.dateOfBirth}"/>
+              
+                
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
